@@ -25,7 +25,11 @@ SECRET_KEY = "django-insecure-cn8^ic6-n3@+@)$cjkt+#*-3r&gry90h(xqm8-o@v-6q$sy@n2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["fixit-backend-dev.ap-southeast-2.elasticbeanstalk.com", "localhost"]
+ALLOWED_HOSTS = [
+    "fixit-backend-dev.ap-southeast-2.elasticbeanstalk.com",
+    "localhost",
+    "172.31.2.20",
+]
 
 
 AUTHENTICATION_BACKENDS = [
@@ -67,9 +71,9 @@ MIDDLEWARE = [
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
     "DEFAULT_AUTHENTICATION_CLASSES": (
-        "rest_framework_jwt.authentication.JSONWebTokenAuthentication",
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.BasicAuthentication",
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
 }
 
